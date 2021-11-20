@@ -1,11 +1,13 @@
-import React,{ useState}from 'react';
+import React,{ useContext}from 'react';
 import Items from './Items';
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import {products} from "./Product";
+import { CartContext } from './Cart';
+
 
 
 const ContextCart = () => {
-    const [item,setItem] = useState(products);
+    const item = useContext(CartContext);
+
     return (
         <>
         <header>

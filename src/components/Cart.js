@@ -1,4 +1,4 @@
-import React,{createContext, useState}from 'react'
+import React,{ createContext }from 'react';
 import './Cart.css';
 
 import {products} from "./Product";
@@ -8,17 +8,15 @@ import ContextCart from './ContextCart';
 
 export const CartContext = createContext();
 
-function Cart() {
-
-    const [item,setItem] = useState(products);
+const Cart = () => {
 
     return (
-        <>
-        <ContextCart>
+        
+        <CartContext.Provider value={products}>
         <ContextCart />
-        </ContextCart>
-        </>
-    )
-}
+        </CartContext.Provider>
+       
+    );
+};
 
 export default Cart
