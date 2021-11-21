@@ -7,5 +7,8 @@ export const reducer = (state,action) => {
             }),
         }
     }
+    if(action.type === "ClEAR_CART"){
+        return {...state,item: []};
+    };
     return state;
 };

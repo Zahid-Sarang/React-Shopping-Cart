@@ -2,11 +2,18 @@ import React,{ useContext}from 'react';
 import Items from './Items';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { CartContext } from './Cart';
-
+import EmptyCart from './EmptyCart';
 
 
 const ContextCart = () => {
-    const {item} = useContext(CartContext);
+    const {item,clearCart} = useContext(CartContext);
+
+    if(item.length === 0){
+        return (
+            <EmptyCart />
+        )
+    }
+
 
     return (
         <>
@@ -40,6 +47,7 @@ const ContextCart = () => {
             <div className="card-total">
                 <h3>Cart Total : <span>22000rs</span></h3>
                 <button>checkout</button>
+                <button className="clear-cart" onClick={clearCart}>Clear Cart</button>
             </div>
         </section>
         </>
