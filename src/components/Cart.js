@@ -1,4 +1,4 @@
-import React,{ createContext,useReducer }from 'react';
+import React,{ createContext,useEffect,useReducer }from 'react';
 import './Cart.css';
 
 import {products} from "./Product";
@@ -42,7 +42,14 @@ const Cart = () => {
             type : "DECREMENT",
             payload: id
         })
-    }
+    };
+
+    useEffect(() =>{
+        dispatch ({
+            type:"GET_TOTAL"
+        },[state.item]);
+    })
+
 
     return (
         
